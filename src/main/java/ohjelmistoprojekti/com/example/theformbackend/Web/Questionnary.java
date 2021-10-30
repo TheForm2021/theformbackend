@@ -12,32 +12,32 @@ import javax.persistence.OneToMany;
 
 
 @Entity
-public class Questionary {
+public class Questionnary {
 	
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
-	private Long questionaryId;
+	private Long questionnaryId;
 	private String header;
 	private String description;
 	
 	@OneToMany(cascade=CascadeType.ALL, mappedBy="questionary")
 	private List<Question> questions;
 	
-	public Questionary() {
+	public Questionnary() {
 		super();
 	
 	}
-	public Questionary(String header, String description) {
+	public Questionnary(String header, String description) {
 		super();
 		this.header=header;
 		this.description=description;
 	
 }
-public Long getQuestionaryId() {
-	return questionaryId;
+public Long getQuestionnaryId() {
+	return questionnaryId;
 }
-public void setQuestionaryId(Long questionaryId) {
-	this.questionaryId = questionaryId;
+public void setQuestionnaryId(Long questionnaryId) {
+	this.questionnaryId = questionnaryId;
 }
 public String getHeader() {
 	return header;
@@ -60,7 +60,7 @@ public void setQuestions(List<Question> questions) {
 }
 @Override
 public String toString() {
-	return "Questionary [questionaryId=" + questionaryId + ", header=" + header + ", description=" + description;
+	return "Questionary [questionaryId=" + questionnaryId + ", header=" + header + ", description=" + description;
 
 }
 }

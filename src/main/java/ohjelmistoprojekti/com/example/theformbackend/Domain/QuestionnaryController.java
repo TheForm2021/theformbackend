@@ -9,7 +9,7 @@ import ohjelmistoprojekti.com.example.theformbackend.Web.QuestionRepository;
 //import ohjelmistoprojekti.com.example.theformbackend.Web.QuestionaryRepository;
 
 @Controller
-public class QuestionaryController {
+public class QuestionnaryController {
 	
 	@Autowired
 	private QuestionRepository qsrepository;

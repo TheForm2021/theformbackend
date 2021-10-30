@@ -24,21 +24,21 @@ public class Question {
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name="questionaryId")
-	private Questionary questionary;
+	private Questionnary questionnary;
 	
 	public Question() {
 		super();
 		
 	}
-	public Question(String question, Questionary questionary) {
+	public Question(String question, Questionnary questionnary) {
 		super();
 		this.question=question;
-		this.questionary=questionary;
+		this.questionnary=questionnary;
 	
 	}
 	@Override
 	public String toString() {
-		return "Question [questionId=" + questionId + ", question=" + question + ", questionary=" + questionary + "]";
+		return "Question [questionId=" + questionId + ", question=" + question + ", questionary=" + questionnary + "]";
 	}
 	public Long getQuestionId() {
 		return questionId;
@@ -52,11 +52,11 @@ public class Question {
 	public void setQuestion(String question) {
 		this.question = question;
 	}
-	public Questionary getQuestionary() {
-		return questionary;
+	public Questionnary getQuestionnary() {
+		return questionnary;
 	}
-	public void setQuestionary(Questionary questionary) {
-		this.questionary = questionary;
+	public void setQuestionnary(Questionnary questionnary) {
+		this.questionnary = questionnary;
 	}
 	
 }
