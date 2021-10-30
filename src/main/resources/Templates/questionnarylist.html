@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Questions and Questionnaries</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	
+	<h1>Kyselyt</h1>
+	<table>
+	<tbody>
+	<tr>
+	<td>Kyselyn nimi</td>
+	<td>Kyselyn kuvaus</td>
+	</tr>
+	
+	<tr th:each="questionnary:${questionnaries}">
+		<td th:text="${questionnary.header}"></td>
+		<td th:text="${questionnary.description}"></td>
+		<td><a th:href="@{/open/{id}(id=${questionnary.questionnaryId})}">Avaa kysely</a></td>
+	
+		</tr>
+		
+	
+	</tbody>
+	</table>
+	
+	<a href="/addQuestionnary">Lisää uusi kysely</a>
+</body>
+</html>

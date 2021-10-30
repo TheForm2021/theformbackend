@@ -20,7 +20,7 @@ public class Questionnary {
 	private String header;
 	private String description;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="questionary")
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="questionnary")
 	private List<Question> questions;
 	
 	public Questionnary() {
@@ -60,7 +60,7 @@ public void setQuestions(List<Question> questions) {
 }
 @Override
 public String toString() {
-	return "Questionary [questionaryId=" + questionnaryId + ", header=" + header + ", description=" + description;
+	return "Questionnary [questionnaryId=" + questionnaryId + ", header=" + header + ", description=" + description;
 
 }
 }

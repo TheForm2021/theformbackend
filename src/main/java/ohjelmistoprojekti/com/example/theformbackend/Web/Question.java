@@ -23,7 +23,7 @@ public class Question {
 	
 	@ManyToOne
 	@JsonIgnore
-	@JoinColumn(name="questionaryId")
+	@JoinColumn(name="questionnaryId")
 	private Questionnary questionnary;
 	
 	public Question() {
