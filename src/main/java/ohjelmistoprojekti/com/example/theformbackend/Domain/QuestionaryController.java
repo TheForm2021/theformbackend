@@ -6,20 +6,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import ohjelmistoprojekti.com.example.theformbackend.Web.QuestionRepository;
-import ohjelmistoprojekti.com.example.theformbackend.Web.QuestionaryRepository;
+//import ohjelmistoprojekti.com.example.theformbackend.Web.QuestionaryRepository;
 
 @Controller
 public class QuestionaryController {
 	
 	@Autowired
 	private QuestionRepository qsrepository;
-	@Autowired
-	private QuestionaryRepository qryrepository;
+	//@Autowired
+	//private QuestionaryRepository qryrepository;
 	
 	@GetMapping("questionlist")
 	public String questionlist(Model model) {
 		model.addAttribute("questions", qsrepository.findAll());
 		return "questionlist";
-	}
-
+	
+}
 }
