@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Questionnary</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Lisää uusi kysely</h1>
+<div>
+
+<form th:object="${questionnary}" th:action="@{savequestionnary}" action="#" method="post">
+
+<label for="header">Otsikko</label>
+<input type="text" id="header" th:field="*{header}"/>
+
+<label for="description">Kuvaus:</label>
+<input type="text" id="description" th:field="*{description}"/>
+
+<input type="submit" value="Tallenna">
+
+
+	
+</form>
+
+
+
+
+</div>
+
+</body>
+</html>

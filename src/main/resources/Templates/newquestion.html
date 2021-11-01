@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>New Questions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Lisää kysymyksiä</h1>
+<div>
+
+	<form th:object="${question}" action="#" th:action="@{savequestion}" method="post">
+	
+	<!-- Lisätään uusi kysymys kyselyyn, jonka id on pathvariablena -->
+	<p>
+	<label for="question">Kysymys:</label>
+	<input type="text" id="question" th:field="*{question}"/>
+	
+	
+	<input type="hidden" id="questionnary" th:value="${questionnary.questionnaryId}" th:field="${questionnary.questionnaryId}"/>
+	</p>
+	
+	<p>
+	 <input type="submit" value= "Tallenna">
+	 </p>
+	
+	</form>
+	</div>
+	 <div>
+	<ul th:each="question:${questions}">
+	<li th:text="${question.question}"></li>
+	</ul>
+	
+	
+	</div>
+	
+
+
+</body>
+</html>

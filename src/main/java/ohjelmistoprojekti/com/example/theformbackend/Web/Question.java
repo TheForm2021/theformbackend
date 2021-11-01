@@ -36,6 +36,10 @@ public class Question {
 		this.questionnary=questionnary;
 	
 	}
+	public Question(Questionnary questionnary) {
+		super();
+		this.questionnary=questionnary;
+	}
 	@Override
 	public String toString() {
 		return "Question [questionId=" + questionId + ", question=" + question + ", questionary=" + questionnary + "]";
