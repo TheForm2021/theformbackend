@@ -8,7 +8,7 @@
 <h1>Lisää kysymyksiä</h1>
 <div>
 
-	<form th:object="${question}" action="#" th:action="@{savequestion}" method="post">
+	<form th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
 	
 	<!-- Lisätään uusi kysymys kyselyyn, jonka id on pathvariablena -->
 	<p>
@@ -16,12 +16,12 @@
 	<input type="text" id="question" th:field="*{question}"/>
 	
 	
-	<input type="hidden" id="questionnary" th:value="${questionnary.questionnaryId}" th:field="${questionnary.questionnaryId}"/>
-	</p>
+	<!--  <input type="hidden" id="questionnary" th:value="${questionnary.questionnaryId}" th:field="${questionnary.questionnaryId}"/>
+	</p>-->
 	
-	<p>
-	 <input type="submit" value= "Tallenna">
-	 </p>
+	
+	 <input type="submit" value= "Tallenna"/>
+	 
 	
 	</form>
 	</div>
