@@ -19,7 +19,7 @@ public class Question {
 	@Id
 	@GeneratedValue(strategy= GenerationType.AUTO)
 	private Long questionId;
-	private String question;
+	private String questionText;
 	
 	@ManyToOne
 	@JsonIgnore
@@ -30,19 +30,19 @@ public class Question {
 		super();
 		
 	}
-	public Question(String question, Questionnary questionnary) {
+	public Question(String questionText, Questionnary questionnary) {
 		super();
-		this.question=question;
+		this.questionText=questionText;
 		this.questionnary=questionnary;
 	
 	}
-	public Question(Questionnary questionnary) {
-		super();
-		this.questionnary=questionnary;
-	}
+	//public Question(Questionnary questionnary) {
+	//	super();
+	//	this.questionnary=questionnary;
+	//}
 	@Override
 	public String toString() {
-		return "Question [questionId=" + questionId + ", question=" + question + ", questionary=" + questionnary + "]";
+		return "Question [questionId=" + questionId + ", questionText=" + questionText + ", questionary=" + questionnary + "]";
 	}
 	public Long getQuestionId() {
 		return questionId;
@@ -50,11 +50,11 @@ public class Question {
 	public void setQuestionId(Long questionId) {
 		this.questionId = questionId;
 	}
-	public String getQuestion() {
-		return question;
+	public String getQuestionText() {
+		return questionText;
 	}
-	public void setQuestion(String question) {
-		this.question = question;
+	public void setQuestionText(String questionText) {
+		this.questionText = questionText;
 	}
 	public Questionnary getQuestionnary() {
 		return questionnary;

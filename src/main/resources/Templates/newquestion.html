@@ -11,13 +11,15 @@
 	<form th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
 	
 	<!-- Lisätään uusi kysymys kyselyyn, jonka id on pathvariablena -->
+	<input type="hidden" id= "questionnaryId" name="questionnaryId" value="1" readonly="readonly"/>
 	<p>
-	<label for="question">Kysymys:</label>
-	<input type="text" id="question" th:field="*{question}"/>
+	<!-- Lomakkeella pitää olla kyselyn ID Hidden kenttä jossa kylseyn ID -->
+
+	<label for="questionText">Kysymys:</label>
+	<input type="text" id="questionText" th:field="*{questionText}"/>
 	
+	</p>
 	
-	<!--  <input type="hidden" id="questionnary" th:value="${questionnary.questionnaryId}" th:field="${questionnary.questionnaryId}"/>
-	</p>-->
 	
 	
 	 <input type="submit" value= "Tallenna"/>
@@ -27,7 +29,7 @@
 	</div>
 	 <div>
 	<ul th:each="question:${questions}">
-	<li th:text="${question.question}"></li>
+	<li th:text="${question.questionText}"></li>
 	</ul>
 	
 	

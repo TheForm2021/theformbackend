@@ -23,9 +23,12 @@ public class RestQuestionController {
 	
 	@GetMapping(value="/open/{id}")
 	public @ResponseBody  List<Question> questionListRest(@PathVariable("id")Long id,Model model){
-		
-		Questionnary questionnary= qryrepository.findById(id).get();
-		return questionnary.getQuestions();
+	
+		return (List<Question>)qryrepository.findById(id).get().getQuestions();
+	}
+	@GetMapping(value="/list")
+	public @ResponseBody List<Questionnary> findQuestionnariesRest(){
+		return (List<Questionnary>) qryrepository.findAll();
 	}
 		
 	

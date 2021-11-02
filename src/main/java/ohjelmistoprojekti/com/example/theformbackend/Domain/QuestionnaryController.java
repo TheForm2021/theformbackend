@@ -48,23 +48,26 @@ public class QuestionnaryController {
 		//Uuden kysymyksen lisäyslomake.
 		//Lomake tulee oikein näkyviin ja sen alle listaantuu ko kyselyID:n alla olevat kysymykset
 	@GetMapping("addquestion/{id}")
-	public String getQuestionForm(Model model,@PathVariable("id")Long id) {
+	public String getQuestionForm(Model model,@PathVariable("id")Long questionnaryId) {
+		Question question= new Question();
+		model.addAttribute("questionnaryid", questionnaryId);
+		model.addAttribute("question", question);
+		//model.addAttribute("questionnary",qryrepository.findById(questionnaryId).get());
+		model.addAttribute("questions", qryrepository.findById(questionnaryId).get().getQuestions());
 		
-		model.addAttribute("question", new Question(qryrepository.findById(id).get()));
-		//model.addAttribute("questionnary",qryrepository.findById(id).get());
-		model.addAttribute("questions", qryrepository.findById(id).get().getQuestions());
 		
 		return "newquestion";
 	}
 			
 		//Uuden kysymyksen tallennus EI TOIMI PRKL!!!
 	@PostMapping("savequestion")
-			public String saveQuestions(@ModelAttribute("question")Question question) {	
+			public String saveQuestions(@ModelAttribute Question question,@ModelAttribute Questionnary questionnary) {	
 		
+		question.setQuestionnary(questionnary);
 			qrepository.save(question);
 		
 			
-			return "redirect: newquestion";
+			return "redirect:addquestion/"+questionnary.getQuestionnaryId();
 	
 			
 			
