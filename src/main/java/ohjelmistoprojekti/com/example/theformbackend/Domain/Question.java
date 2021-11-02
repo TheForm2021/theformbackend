@@ -1,4 +1,4 @@
-package ohjelmistoprojekti.com.example.theformbackend.Web;
+package ohjelmistoprojekti.com.example.theformbackend.Domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

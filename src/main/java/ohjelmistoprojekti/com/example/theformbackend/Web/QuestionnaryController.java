@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import ohjelmistoprojekti.com.example.theformbackend.Web.Question;
-import ohjelmistoprojekti.com.example.theformbackend.Web.QuestionRepository;
-import ohjelmistoprojekti.com.example.theformbackend.Web.Questionnary;
+import ohjelmistoprojekti.com.example.theformbackend.Domain.Question;
+import ohjelmistoprojekti.com.example.theformbackend.Domain.QuestionRepository;
+import ohjelmistoprojekti.com.example.theformbackend.Domain.Questionnary;
 //import ohjelmistoprojekti.com.example.theformbackend.Web.QuestionRepository;
-import ohjelmistoprojekti.com.example.theformbackend.Web.QuestionnaryRepository;
+import ohjelmistoprojekti.com.example.theformbackend.Domain.QuestionnaryRepository;
 
 @Controller
 public class QuestionnaryController {

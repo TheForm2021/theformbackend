@@ -7,10 +7,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import ohjelmistoprojekti.com.example.theformbackend.Web.Question;
-import ohjelmistoprojekti.com.example.theformbackend.Web.QuestionRepository;
-import ohjelmistoprojekti.com.example.theformbackend.Web.Questionnary;
-import ohjelmistoprojekti.com.example.theformbackend.Web.QuestionnaryRepository;
+import ohjelmistoprojekti.com.example.theformbackend.Domain.Question;
+import ohjelmistoprojekti.com.example.theformbackend.Domain.QuestionRepository;
+import ohjelmistoprojekti.com.example.theformbackend.Domain.Questionnary;
+import ohjelmistoprojekti.com.example.theformbackend.Domain.QuestionnaryRepository;
 
 @SpringBootApplication
 public class TheformbackendApplication {

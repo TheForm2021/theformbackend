@@ -1,4 +1,4 @@
-package ohjelmistoprojekti.com.example.theformbackend.Web;
+package ohjelmistoprojekti.com.example.theformbackend.Domain;
 
 import java.util.List;
 
