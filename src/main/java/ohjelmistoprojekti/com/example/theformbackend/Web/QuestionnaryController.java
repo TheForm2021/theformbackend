@@ -1,4 +1,4 @@
-package ohjelmistoprojekti.com.example.theformbackend.Domain;
+package ohjelmistoprojekti.com.example.theformbackend.Web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import ohjelmistoprojekti.com.example.theformbackend.Web.Question;
 import ohjelmistoprojekti.com.example.theformbackend.Web.QuestionRepository;
@@ -22,6 +23,12 @@ public class QuestionnaryController {
 	
 	@Autowired 
 	QuestionRepository qrepository;
+	
+	// aloitussivu, jos ei endpointtia
+    @RequestMapping(value="/*")
+    public String startPage() {	
+        return "questionnarylist";
+    }
 	
 	//Listaa kaikki kyselyt. Tää toimii
 	@GetMapping("questionnarylist")
