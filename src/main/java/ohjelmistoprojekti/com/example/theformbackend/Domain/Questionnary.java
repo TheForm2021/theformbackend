@@ -20,7 +20,7 @@ public class Questionnary {
 	private String header;
 	private String description;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="questionnary")
+	@OneToMany(cascade= CascadeType.ALL, mappedBy="questionnary")
 	private List<Question> questions;
 	
 	public Questionnary() {

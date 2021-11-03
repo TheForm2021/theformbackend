@@ -5,24 +5,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Lisää kysymyksiä</h1>
+<h1>Add questions</h1>
 <div>
 
 	<form th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
 	
 	<!-- Lisätään uusi kysymys kyselyyn, jonka id on pathvariablena -->
-	<input type="hidden" id= "questionnaryId" name="questionnaryId" value="1" readonly="readonly"/>
+	<input type="hidden" id= "questionnaryid" name="questionnaryid" th:value="${questionnaryid}" readonly="readonly"/>
 	<p>
 	<!-- Lomakkeella pitää olla kyselyn ID Hidden kenttä jossa kylseyn ID -->
 
-	<label for="questionText">Kysymys:</label>
+	<label for="questionText">Question:</label>
 	<input type="text" id="questionText" th:field="*{questionText}"/>
 	
 	</p>
 	
 	
 	
-	 <input type="submit" value= "Tallenna"/>
+	
+	 <input type="submit" value= "Save"/>
 	 
 	
 	</form>
@@ -35,7 +36,7 @@
 	
 	</div>
 	
-
+<a href ="/questionnarylist">Return</a>
 
 </body>
 </html>

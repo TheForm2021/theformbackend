@@ -1,5 +1,8 @@
 package ohjelmistoprojekti.com.example.theformbackend.Web;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,24 +60,28 @@ public class QuestionnaryController {
 	@GetMapping("/addquestion/{id}")
 	public String getQuestionForm(Model model,@PathVariable("id")Long questionnaryId) {
 		Question question= new Question();
+		
 		model.addAttribute("questionnaryid", questionnaryId);
 		model.addAttribute("question", question);
-		//model.addAttribute("questionnary",qryrepository.findById(questionnaryId).get());
 		model.addAttribute("questions", qryrepository.findById(questionnaryId).get().getQuestions());
 		
 		
+		
+
 		return "newquestion";
 	}
 			
-		//Uuden kysymyksen tallennus EI TOIMI PRKL!!!
+		//Uuden kysymyksen tallennus EI TOIMI !!!
 	@PostMapping("/savequestion")
-			public String saveQuestions(@ModelAttribute Question question,@ModelAttribute Questionnary questionnary) {	
-		
-		question.setQuestionnary(questionnary);
-			qrepository.save(question);
+			public String saveQuestions(@ModelAttribute Question question, @ModelAttribute("questionnaryid") Long id) {	
+	
+		Questionnary qry=qryrepository.findById(id).get();
+		question.setQuestionnary(qry);
+		qrepository.save(question);
+			
 		
 			
-			return "redirect:addquestion/"+questionnary.getQuestionnaryId();
+			return "redirect:addquestion/"+qry.getQuestionnaryId();
 	
 			
 			

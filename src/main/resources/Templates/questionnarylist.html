@@ -6,27 +6,27 @@
 </head>
 <body>
 	
-	<h1>Kyselyt</h1>
+	<h1>Questionnaries</h1>
 	<table>
 	<tbody>
 	<tr>
-	<td>Kysely id</td>
-	<td>Kyselyn nimi</td>
-	<td>Kyselyn kuvaus</td>
+	<td>Questionnary ID</td>
+	<td>Questionnary name</td>
+	<td>Questionnary description</td>
 	</tr>
 	
 	<tr th:each="questionnary:${questionnaries}">
 	<td th:text="${questionnary.questionnaryId}"></td>
 		<td th:text="${questionnary.header}"></td>
 		<td th:text="${questionnary.description}"></td>
-		<td><a th:href="@{/open/{id}(id=${questionnary.questionnaryId})}">Avaa kysely</a></td>
-		<td><a th:href="@{/addquestion/{id}(id=${questionnary.questionnaryId})}">Lisää kysymykset</a></td>
+		<td><a th:href="@{/open/{id}(id=${questionnary.questionnaryId})}">Open</a></td>
+		<td><a th:href="@{/addquestion/{id}(id=${questionnary.questionnaryId})}">Add questions</a></td>
 		</tr>
 		
 	
 	</tbody>
 	</table>
 	
-	<a href="/newquestionnary">Lisää uusi kysely</a>
+	<a href="/newquestionnary">Add new questionnary</a>
 </body>
 </html>
