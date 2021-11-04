@@ -1,4 +1,4 @@
-package ohjelmistoprojekti.com.example.theformbackend.Domain;
+package ohjelmistoprojekti.com.example.theformbackend.domain;
 
 import org.springframework.data.repository.CrudRepository;
 

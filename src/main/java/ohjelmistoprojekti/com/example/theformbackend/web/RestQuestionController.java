@@ -1,4 +1,4 @@
-package ohjelmistoprojekti.com.example.theformbackend.Web;
+package ohjelmistoprojekti.com.example.theformbackend.web;
 
 import java.util.List;
 
@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import ohjelmistoprojekti.com.example.theformbackend.Domain.Question;
-import ohjelmistoprojekti.com.example.theformbackend.Domain.QuestionRepository;
-import ohjelmistoprojekti.com.example.theformbackend.Domain.Questionnary;
-import ohjelmistoprojekti.com.example.theformbackend.Domain.QuestionnaryRepository;
+import ohjelmistoprojekti.com.example.theformbackend.domain.Question;
+import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionRepository;
+import ohjelmistoprojekti.com.example.theformbackend.domain.Questionnary;
+import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionnaryRepository;
 
 @CrossOrigin
 @RestController
