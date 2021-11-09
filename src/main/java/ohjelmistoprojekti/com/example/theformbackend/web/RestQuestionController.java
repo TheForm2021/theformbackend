@@ -28,7 +28,7 @@ public class RestQuestionController {
 	
 		return (List<Question>)qryrepository.findById(id).get().getQuestions();
 	}
-	@GetMapping(value="/list")
+	@GetMapping(value="/restquestionnarylist")
 	public @ResponseBody List<Questionnary> findQuestionnariesRest(){
 		return (List<Questionnary>) qryrepository.findAll();
 	}

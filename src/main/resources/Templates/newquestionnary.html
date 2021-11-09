@@ -7,15 +7,17 @@
 <body>
 <h1>Add new Questionnary</h1>
 <div>
-
-<form th:object="${questionnary}" th:action="@{savequestionnary}" action="#" method="post">
+<p>
+<form th:object="${questionnary}" id="myform" th:action="@{savequestionnary}" action="#" method="post">
 
 <label for="header">Header</label>
 <input type="text" id="header" th:field="*{header}"/>
 
+<p>
 <label for="description">Description</label>
-<input type="text" id="description" th:field="*{description}"/>
+<textarea id="description" th:field="*{description}" form="myform"></textarea>
 
+</p>
 <input type="submit" value="Tallenna">
 
 
