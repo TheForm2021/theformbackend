@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Questions and Questionnaries</title>
+<title>Questions and Questionnairies</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	
-	<h1>Questionnaries</h1>
+	<h1>Questionnairies</h1>
 	<table>
 	<tbody>
 	<tr>
-	<td>Questionnary ID</td>
-	<td>Questionnary name</td>
-	<td>Questionnary description</td>
+	<td>Questionnaire ID</td>
+	<td>Questionnaire name</td>
+	<td>Questionnaire description</td>
 	</tr>
 	
 	<tr th:each="questionnary:${questionnaries}">
@@ -27,6 +27,6 @@
 	</tbody>
 	</table>
 	
-	<a href="/newquestionnary">Add new questionnary</a>
+	<a href="/newquestionnary">Add new questionnaire</a>
 </body>
 </html>

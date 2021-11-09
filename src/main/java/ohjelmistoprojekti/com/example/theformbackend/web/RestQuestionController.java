@@ -23,11 +23,14 @@ public class RestQuestionController {
 	@Autowired
 	QuestionnaryRepository qryrepository;
 	
+	
+	//list of questionnaires questions
 	@GetMapping(value="/open/{id}")
 	public @ResponseBody  List<Question> questionListRest(@PathVariable("id")Long id,Model model){
 	
 		return (List<Question>)qryrepository.findById(id).get().getQuestions();
 	}
+	//list of all questionnairies
 	@GetMapping(value="/restquestionnarylist")
 	public @ResponseBody List<Questionnary> findQuestionnariesRest(){
 		return (List<Questionnary>) qryrepository.findAll();
