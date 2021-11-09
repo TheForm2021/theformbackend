@@ -11,11 +11,11 @@
 <form th:object="${questionnary}" id="myform" th:action="@{savequestionnary}" action="#" method="post">
 
 <label for="header">Header</label>
-<input type="text" id="header" th:field="*{header}"/>
+<input type="text" id="header" th:field="*{header}" size="60"/>
 
 <p>
 <label for="description">Description</label>
-<textarea id="description" th:field="*{description}" form="myform"></textarea>
+<textarea id="description" th:field="*{description}" form="myform" rows="4" cols="60"></textarea>
 
 </p>
 <input type="submit" value="Tallenna">
