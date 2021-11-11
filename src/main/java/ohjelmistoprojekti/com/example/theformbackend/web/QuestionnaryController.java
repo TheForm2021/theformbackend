@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import ohjelmistoprojekti.com.example.theformbackend.domain.Questionnary;
 import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionnaryRepository;
 
@@ -22,6 +24,12 @@ public class QuestionnaryController {
 	
 //@Autowired 
 //	private QuestionRepository qrepository;
+	
+	// ilman endpointtia ohjautuu aina kyselylistaukseen
+    @RequestMapping(value="/*")
+    public String startPage() {	
+        return "questionnarylist";
+    }
 	
 	//Listaa kaikki kyselyt. Tää toimii
 	@GetMapping("/questionnarylist")
