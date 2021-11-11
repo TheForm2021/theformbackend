@@ -43,6 +43,7 @@ public class QuestionnaryController {
 		qryrepository.save(questionnary);
 		return "redirect:questionnarylist";
 	}
+	
 		
 }
 
