@@ -26,8 +26,9 @@ public class QuestionnaryController {
 //	private QuestionRepository qrepository;
 	
 	// ilman endpointtia ohjautuu aina kyselylistaukseen
-    @RequestMapping(value="/*")
-    public String startPage() {	
+    @GetMapping("/*")
+    public String startPage(Model model) {	
+    	model.addAttribute("questionnaries", qryrepository.findAll());
         return "questionnarylist";
     }
 	
