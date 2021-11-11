@@ -67,6 +67,12 @@ public class Question {
 	public void setQuestionnary(Questionnary questionnary) {
 		this.questionnary = questionnary;
 	}
-	
+	public List<Answer> getAnswers() {
+		return answers;
+	}
+	public void setAnswers(List<Answer> answers) {
+		this.answers = answers;
+	}
+
 }
 	
