@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ohjelmistoprojekti.com.example.theformbackend.domain.Answer;
 import ohjelmistoprojekti.com.example.theformbackend.domain.AnswerRepository;
+import ohjelmistoprojekti.com.example.theformbackend.domain.Question;
 import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionRepository;
 import ohjelmistoprojekti.com.example.theformbackend.domain.Questionnary;
 import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionnaryRepository;
@@ -50,5 +51,12 @@ public class RestAnswerController {
 	public @ResponseBody Questionnary findQuestionnaries(@PathVariable ("questionnaryId")Long questionnaryId){
 		return qryrepository.findById(questionnaryId).get();
 	}
-	
+	@PostMapping(value="/question/{questionId/answers}")
+	public @ResponseBody Answer saveAnswerToCertainQuestionnary(@PathVariable("questionId")Long id, @RequestBody Answer answer) {
+		
+		Question question= qrepository.findById(id).get();
+		answer.setQuestion(question);
+		
+		return awrrepository.save(answer);
+	}
 }

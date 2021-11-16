@@ -7,6 +7,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import ohjelmistoprojekti.com.example.theformbackend.domain.Answer;
+import ohjelmistoprojekti.com.example.theformbackend.domain.AnswerRepository;
 import ohjelmistoprojekti.com.example.theformbackend.domain.Question;
 import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionRepository;
 import ohjelmistoprojekti.com.example.theformbackend.domain.Questionnary;
@@ -24,7 +26,7 @@ public class TheformbackendApplication {
 	
 
 	@Bean
-	public CommandLineRunner demo(QuestionRepository qrepository, QuestionnaryRepository qryrepository) {
+	public CommandLineRunner demo(QuestionRepository qrepository, QuestionnaryRepository qryrepository, AnswerRepository arepository) {
 		return(args) -> {
 			
 			
@@ -47,6 +49,11 @@ public class TheformbackendApplication {
 			qrepository.save(q3);
 			qrepository.save(q4);
 			
+			Answer a1=new Answer("On tosi tosikivaa", q1);
+			Answer a2= new Answer("Jeee mikään ei onnistu",q1);
+			
+			arepository.save(a1);
+			arepository.save(a2);
 		
 			
 			log.info("Haetaan kaikki kyselyt:");
