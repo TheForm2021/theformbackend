@@ -3,6 +3,7 @@ package ohjelmistoprojekti.com.example.theformbackend.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +17,7 @@ import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionRepository;
 import ohjelmistoprojekti.com.example.theformbackend.domain.Questionnary;
 import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionnaryRepository;
 
+@CrossOrigin
 @RestController
 public class RestAnswerController {
 
