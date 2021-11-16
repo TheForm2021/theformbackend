@@ -34,29 +34,26 @@ public class RestAnswerController {
 	
 	
 	//REST service to get answers to certain question
-	@GetMapping(value="/answers/{id}")
-	public @ResponseBody List<Answer> findAnswerRest(@PathVariable("id")Long id) {
+	@GetMapping(value="/answers/{questionid}")
+	public @ResponseBody List<Answer> findAnswerRest(@PathVariable("questionid")Long id) {
 		return (List <Answer>)qrepository.findById(id).get().getAnswers();
 	}
 	//saves answer to repository
-	@PostMapping(value="/answers")
-	public @ResponseBody Answer saveAnswerRest( @RequestBody Answer answer) {
+	//@PostMapping(value="/answer")
+	//public @ResponseBody Answer saveAnswerRest( @RequestBody Answer answer) {
 	//	Question question= qrepository.findById(id).get();
 	//	answer.setQuestion(question);
-		return awrrepository.save(answer);
+	//	return awrrepository.save(answer);
 	
+	
+	@PostMapping(value="/answers")
+	public @ResponseBody List <Answer> saveRestAnswerList(@RequestBody List<Answer> answers){
+		return (List<Answer>) awrrepository.saveAll(answers);
 	}
 	//lists all questions and answers of certain questionnary
 	@GetMapping(value="/questionnaries/{questionnaryId}")
 	public @ResponseBody Questionnary findQuestionnaries(@PathVariable ("questionnaryId")Long questionnaryId){
 		return qryrepository.findById(questionnaryId).get();
 	}
-	@PostMapping(value="/question/{questionId/answers}")
-	public @ResponseBody Answer saveAnswerToCertainQuestionnary(@PathVariable("questionId")Long id, @RequestBody Answer answer) {
-		
-		Question question= qrepository.findById(id).get();
-		answer.setQuestion(question);
-		
-		return awrrepository.save(answer);
-	}
+	
 }
