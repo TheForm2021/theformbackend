@@ -45,7 +45,7 @@ public class RestAnswerController {
 	//	answer.setQuestion(question);
 	//	return awrrepository.save(answer);
 	
-	
+	//saves answerlist to repository
 	@PostMapping(value="/answers")
 	public @ResponseBody List <Answer> saveRestAnswerList(@RequestBody List<Answer> answers){
 		return (List<Answer>) awrrepository.saveAll(answers);
@@ -54,6 +54,10 @@ public class RestAnswerController {
 	@GetMapping(value="/questionnaries/{questionnaryId}")
 	public @ResponseBody Questionnary findQuestionnaries(@PathVariable ("questionnaryId")Long questionnaryId){
 		return qryrepository.findById(questionnaryId).get();
+	}
+	@GetMapping(value="/answers")
+	public @ResponseBody List <Answer> findallAnswersRest(){
+		return (List<Answer>) awrrepository.findAll();
 	}
 	
 }
