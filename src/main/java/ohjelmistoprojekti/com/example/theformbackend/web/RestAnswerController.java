@@ -34,9 +34,12 @@ public class RestAnswerController {
 	
 	
 	//REST service to get answers to certain question
-	@GetMapping(value="/answers/{questionid}")
+	@GetMapping(value="/questions/{questionid}/answers")
 	public @ResponseBody List<Answer> findAnswerRest(@PathVariable("questionid")Long id) {
-		return (List <Answer>)qrepository.findById(id).get().getAnswers();
+		qrepository.findById(id).get().getAnswers();
+		
+		return qrepository.findById(id).get().getAnswers();
+		
 	}
 	//saves answer to repository
 	//@PostMapping(value="/answer")
