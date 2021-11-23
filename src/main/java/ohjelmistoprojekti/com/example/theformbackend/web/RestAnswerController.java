@@ -51,6 +51,7 @@ public class RestAnswerController {
 	//saves answerlist to repository
 	@PostMapping(value="/answers")
 	public @ResponseBody List <Answer> saveRestAnswerList(@RequestBody List<Answer> answers){
+		System.out.println(answers);
 		return (List<Answer>) awrrepository.saveAll(answers);
 	}
 	//lists all questions and answers of certain questionnary
