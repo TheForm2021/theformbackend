@@ -24,14 +24,22 @@ public class Answer {
 	@JoinColumn(name="questionId")
 	Question question;
 	
+	@ManyToOne
+	@JsonIgnoreProperties("answers")
+	@JoinColumn(name="answererId")
+	private Answerer answerer;
+	
 
 	public Answer() {
 		super();
 	}
-	public Answer(String answerText, Question question) {
+	
+	public Answer(String answerText, Question question, Answerer answerer) {
 		this.answerText=answerText;
 		this.question=question;
+		this.answerer=answerer;
 	}
+	
 	public Long getAnswerId() {
 		return answerId;
 	}
@@ -50,9 +58,18 @@ public class Answer {
 	public void setQuestion(Question question) {
 		this.question = question;
 	}
+	
+	public Answerer getAnswerer() {
+		return answerer;
+	}
+
+	public void setAnswerer(Answerer answerer) {
+		this.answerer = answerer;
+	}
+
 	@Override
 	public String toString() {
-		return "Answer [answerId=" + answerId + ", answerText=" + answerText + ", question=" + question + "]";
+		return "Answer [answerId=" + answerId + ", answerText=" + answerText + ", question=" + question + ", answerer=" + answerer + "]";
 	}
 	
 	
