@@ -1,6 +1,12 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<style>
+input{
+display: block;
+margin-bottom: 3px;
+}
+</style>
     <title>New Questions</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
@@ -24,6 +30,13 @@
 	<select id="typelist" onchange="optionChange()" th:field="*{type}">
 	<option th:each="type: ${types}" th:value="${type.typeId}" th:text="${type.typeText}"></option>
 	</select>
+	<br>
+	<h3>Add options:</h3>
+	</form>
+	<form id="form" action="#"></form>
+ 	<button id="btn">Add option</button>
+	
+	
 	<p id="demo"></p>
 	<br>
 	
@@ -31,21 +44,37 @@
 	function optionChange(){
 		var x= document.getElementById("typelist").value;
 		document.getElementById("demo").innerHTML="You selected "+ x ;
+	
 	}
+	(function(){
+		var counter=0;
+		var btn=document.getElementById('btn');
+		var form= document.getElementById('form');
+		var addInput= function(){
+			counter++;
+			var input=document.createElement("input");
+			input.ud='input-'+counter;
+			input.type='text;'
+			input.name = 'name';
+		    input.placeholder = 'Input number ' + counter;
+		    form.appendChild(input);
+		  };
+		  btn.addEventListener('click', function() {
+		    addInput();
+		  }.bind(this));
+	})();
+		
+	
+		
+		
+	
 	</script>
 	
-	<th:block th:switch="${type.typeText}">
-	
-	  <div th:case="'Radiobutton'">Radiobutton blaaaa</div>
-    <div th:case="'Checkbox'">Checkboxblaaa</div>
-	
-	</th:block>
-	
+
 	
 	 <input type="submit" value= "Save"/>
 	 
 	
-	</form>
 	</div>
 	 <div>
 	<ul th:each="question:${questions}">
