@@ -20,8 +20,18 @@
 	
 	</p>
 	
+	<label for="type">Question type:</label>
+	<select id="typelist"  th:field="*{type}">
+	<option th:each="type: ${types}" th:value="${type.typeId}" th:text="${type.typeText}"></option>
+	</select>
 	
+	<label for="option">Options</label>
 	
+	<div>
+	<span th:if="${type.typeText == 'Radiobutton'}">Radiobutton blaaaa</span>
+    <span th:unless="${type.typeText == 'Checkbox'}">Checkboxblaaa</span>
+	
+	</div>
 	
 	 <input type="submit" value= "Save"/>
 	 

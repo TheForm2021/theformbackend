@@ -35,7 +35,8 @@ public class RestQuestionController {
 	public @ResponseBody List<Questionnary> findQuestionnariesRest(){
 		return (List<Questionnary>) qryrepository.findAll();
 	}
-		
+	
+	
 	
 
 }
