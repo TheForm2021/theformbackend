@@ -78,6 +78,12 @@ public class TheformbackendApplication {
 			orepository.save(o2);
 		
 			
+			log.info("Haetaan kaikki vastaajat:");
+			for(Answer answer :arepository.findAll()) {
+				log.info(answer.toString());
+			}
+		
+			
 			log.info("Haetaan kaikki kyselyt:");
 			for(Questionnary questionnary :qryrepository.findAll()) {
 				log.info(questionnary.toString());

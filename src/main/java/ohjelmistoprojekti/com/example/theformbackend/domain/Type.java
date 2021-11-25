@@ -57,7 +57,7 @@ public class Type {
 
 	@Override
 	public String toString() {
-		return "Type [typeId=" + typeId + ", typeText=" + typeText + ", questions=" + questions + "]";
+		return "Type [typeId=" + typeId + ", typeText=" + typeText + "]";
 	}
 	
 	
