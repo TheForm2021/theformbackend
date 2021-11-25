@@ -30,14 +30,14 @@ public class QuestionController {
 	//Uuden kysymyksen lisäyslomake.
 	//Lomake tulee oikein näkyviin ja sen alle listaantuu ko kyselyID:n alla olevat kysymykset
 	@GetMapping("/addquestion/{id}")
-	public String getQuestionForm(Model model,@PathVariable("id")Long questionnaryId, @RequestParam("typeId")Long typeId) { // pathvariable eristää idn numeron urlista
+	public String getQuestionForm(Model model,@PathVariable("id")Long questionnaryId, Type type) { // pathvariable eristää idn numeron urlista
 		Question question= new Question();
 	
 		model.addAttribute("questionnaryid", questionnaryId);
 		model.addAttribute("question", question);
 		model.addAttribute("questions", qryrepository.findById(questionnaryId).get().getQuestions());
 		model.addAttribute("types", trepository.findAll());
-		model.addAttribute("type", trepository.findById(typeId));
+		model.addAttribute("type", type);
 		return "newquestion";
 	}
 			

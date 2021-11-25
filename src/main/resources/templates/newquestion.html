@@ -21,17 +21,26 @@
 	</p>
 	
 	<label for="type">Question type:</label>
-	<select id="typelist"  th:field="*{type}">
+	<select id="typelist" onchange="optionChange()" th:field="*{type}">
 	<option th:each="type: ${types}" th:value="${type.typeId}" th:text="${type.typeText}"></option>
 	</select>
+	<p id="demo"></p>
+	<br>
 	
-	<label for="option">Options</label>
+	<script>
+	function optionChange(){
+		var x= document.getElementById("typelist").value;
+		document.getElementById("demo").innerHTML="You selected "+ x ;
+	}
+	</script>
 	
-	<div>
-	<span th:if="${type.typeText == 'Radiobutton'}">Radiobutton blaaaa</span>
-    <span th:unless="${type.typeText == 'Checkbox'}">Checkboxblaaa</span>
+	<th:block th:switch="${type.typeText}">
 	
-	</div>
+	  <div th:case="'Radiobutton'">Radiobutton blaaaa</div>
+    <div th:case="'Checkbox'">Checkboxblaaa</div>
+	
+	</th:block>
+	
 	
 	 <input type="submit" value= "Save"/>
 	 
