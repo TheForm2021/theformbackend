@@ -60,9 +60,11 @@ public class QuestionController {
 	@GetMapping("/newoption/{id}")
 	public String getOptionForm(Model model,@PathVariable("id") Long questionId) {
 		Option option= new Option();
-		model.addAttribute("questionid", qrepository.findById(questionId));
+		model.addAttribute("questionnary", qrepository.findById(questionId).get().getQuestionnary());
+		model.addAttribute("questionId", questionId);
 		model.addAttribute("option", option);
 		model.addAttribute("options", qrepository.findById(questionId).get().getOptions());
+		model.addAttribute("questionText",qrepository.findById(questionId).get().getQuestionText());
 		return "newoption";
 	}
 	@PostMapping("/saveoption")
@@ -76,4 +78,11 @@ public class QuestionController {
 		return "redirect:/newoption/"+option.getQuestion().getQuestionId();
 			
 }
+	@GetMapping("/delete/{id}")
+	public String deleteById(@PathVariable("id")Long optionId, Model model) {
+		Question question= orepository.findById(optionId).get().getQuestion();
+		orepository.deleteById(optionId);
+		return "redirect:/newoption/"+question.getQuestionId();
+	}
+	
 }

@@ -62,7 +62,7 @@ public class Option {
 
 	@Override
 	public String toString() {
-		return "Option [optionId=" + optionId + ", optionText=" + optionText + ", question=" + question + "]";
+		return optionText;
 	}
 	
 	
