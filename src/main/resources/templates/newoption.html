@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Add options:</h1>
+
+<form th:object="${option}" th:action="@{/saveoption}" action="#" method="post">
+<input type="hidden" id="questionid" name="questionid" th:value="${question.questionId}" readonly="readonly"/>
+
+<label for="optionText">Option:</label>
+<input type="text" id="optionText" th:field="*{optionText}" size="50"/>
+
+
+<input type="submit" value="Save"/>
+
+</form>
+<div>
+<ul th:each="option :${options}">
+<li th:text="${option.optionText}"></li>
+
+</ul>
+</div>
+</body>
+</html>
+
+

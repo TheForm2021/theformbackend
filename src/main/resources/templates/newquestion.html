@@ -14,33 +14,33 @@ margin-bottom: 3px;
 <h1>Add questions</h1>
 <div>
 
-	<form th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
+	<form id="form1" th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
 	
 	<!-- Lisätään uusi kysymys kyselyyn, jonka id on pathvariablena -->
 	<input type="hidden" id= "questionnaryid" name="questionnaryid" th:value="${questionnaryid}" readonly="readonly"/>
 	<p>
 	<!-- Lomakkeella pitää olla kyselyn ID Hidden kenttä jossa kylseyn ID -->
-
+	
+	
 	<label for="questionText">Question:</label>
 	<input type="text" id="questionText" th:field="*{questionText}" size="50"/>
 	
 	</p>
 	
-	<label for="type">Question type:</label>
-	<select id="typelist" onchange="optionChange()" th:field="*{type}">
+	 <label for="type">Question type:</label>
+	<select id="typelist" th:field="*{type}">
 	<option th:each="type: ${types}" th:value="${type.typeId}" th:text="${type.typeText}"></option>
 	</select>
-	<br>
-	<h3>Add options:</h3>
-	</form>
-	<form id="form" action="#"></form>
- 	<button id="btn">Add option</button>
+<br>
+<br>
+	<!--   <input type="submit" value= "Add options"/>
+	<label for="optionText">Options:</label>
+	<input type="text" id="option"  th:field="${option.optionText}" size="50"/>
+	</form> -->
+
 	
 	
-	<p id="demo"></p>
-	<br>
-	
-	<script>
+<!--  <script>
 	function optionChange(){
 		var x= document.getElementById("typelist").value;
 		document.getElementById("demo").innerHTML="You selected "+ x ;
@@ -56,7 +56,7 @@ margin-bottom: 3px;
 			input.ud='input-'+counter;
 			input.type='text;'
 			input.name = 'name';
-		    input.placeholder = 'Input number ' + counter;
+		    input.placeholder = 'Option number ' + counter;
 		    form.appendChild(input);
 		  };
 		  btn.addEventListener('click', function() {
@@ -68,12 +68,17 @@ margin-bottom: 3px;
 		
 		
 	
-	</script>
+	</script> -->
 	
 
+	<!--   <ul th:each="option:${options}">
+	 <li th:text="${option.optionText}"></li>
+	 </ul>
+	 </div>
+	<br> -->
+	 <input type="submit" value= "Next"/>
+	</form>
 	
-	 <input type="submit" value= "Save"/>
-	 
 	
 	</div>
 	 <div>
@@ -83,6 +88,7 @@ margin-bottom: 3px;
 	
 	
 	</div>
+
 	
 <a href ="/questionnarylist">Return</a>
 

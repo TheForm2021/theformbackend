@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionRepository;
+import ohjelmistoprojekti.com.example.theformbackend.domain.Option;
+import ohjelmistoprojekti.com.example.theformbackend.domain.OptionRepository;
 import ohjelmistoprojekti.com.example.theformbackend.domain.Question;
 import ohjelmistoprojekti.com.example.theformbackend.domain.Questionnary;
 import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionnaryRepository;
@@ -25,19 +27,22 @@ public class QuestionController {
 	private QuestionRepository qrepository;
 	@Autowired 
 	private TypeRepository trepository;
-	
+	@Autowired
+	private OptionRepository orepository;
 	
 	//Uuden kysymyksen lisäyslomake.
 	//Lomake tulee oikein näkyviin ja sen alle listaantuu ko kyselyID:n alla olevat kysymykset
 	@GetMapping("/addquestion/{id}")
 	public String getQuestionForm(Model model,@PathVariable("id")Long questionnaryId, Type type) { // pathvariable eristää idn numeron urlista
 		Question question= new Question();
-	
+		Option option= new Option();
 		model.addAttribute("questionnaryid", questionnaryId);
 		model.addAttribute("question", question);
 		model.addAttribute("questions", qryrepository.findById(questionnaryId).get().getQuestions());
 		model.addAttribute("types", trepository.findAll());
 		model.addAttribute("type", type);
+		model.addAttribute("option", option);
+		model.addAttribute("options", orepository.findAll());
 		return "newquestion";
 	}
 			
@@ -49,12 +54,26 @@ public class QuestionController {
 		question.setQuestionnary(qry);
 		qrepository.save(question);
 		
-		return "redirect:addquestion/"+qry.getQuestionnaryId();
+		return "redirect:/newoption/"+question.getQuestionId();
 	
 	}
-			
-			
+	@GetMapping("/newoption/{id}")
+	public String getOptionForm(Model model,@PathVariable("id") Long questionId) {
+		Option option= new Option();
+		model.addAttribute("questionid", qrepository.findById(questionId));
+		model.addAttribute("option", option);
+		model.addAttribute("options", qrepository.findById(questionId).get().getOptions());
+		return "newoption";
+	}
+	@PostMapping("/saveoption")
+	public String saveOptions(@ModelAttribute Option option, @ModelAttribute("questionId") Long id) {
+		Question question= qrepository.findById(id).get();
+		option.setQuestion(question);
+		orepository.save(option);
+		
+		
+		
+		return "redirect:/newoption/"+option.getQuestion().getQuestionId();
 			
 }
-
-
+}
