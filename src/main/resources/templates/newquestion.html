@@ -12,10 +12,11 @@ margin-bottom: 3px;
 </head>
 <body>
 <h1>Add questions</h1>
+
 <div>
 
 	<form id="form1" th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
-	
+	<p th:text="'Add questions to questionnaire: '+${questionnaryText}"/>
 	<!-- Lisätään uusi kysymys kyselyyn, jonka id on pathvariablena -->
 	<input type="hidden" id= "questionnaryid" name="questionnaryid" th:value="${questionnaryid}" readonly="readonly"/>
 	<p>

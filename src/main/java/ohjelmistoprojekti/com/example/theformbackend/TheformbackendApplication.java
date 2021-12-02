@@ -47,9 +47,10 @@ public class TheformbackendApplication {
 			
 			Type t1= new Type("Checkbox");
 			Type t2= new Type("Radiobutton");
-			
+			Type t3= new Type("Text");			
 			trepository.save(t1);
 			trepository.save(t2);
+			trepository.save(t3);
 			
 			Question q1= new Question("Onko kivaa?", qry1, t1);
 			Question q2=new Question("Miten menee?", qry1, t1);

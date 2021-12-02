@@ -37,6 +37,7 @@ public class QuestionController {
 		Question question= new Question();
 		Option option= new Option();
 		model.addAttribute("questionnaryid", questionnaryId);
+		model.addAttribute("questionnaryText",qryrepository.findById(questionnaryId).get().getHeader());
 		model.addAttribute("question", question);
 		model.addAttribute("questions", qryrepository.findById(questionnaryId).get().getQuestions());
 		model.addAttribute("types", trepository.findAll());
