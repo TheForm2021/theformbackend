@@ -82,10 +82,12 @@ margin-bottom: 3px;
 	
 	</div>
 	  <div>
+	  <h3>Review:</h3>
 	<ul th:each="question:${questions}">
-	<li th:text="${question.questionText}">
+	<li th:text="'Question: '+ ${question.questionText}">
 	<li><a th:href="@{/newoption/{id}(id=${question.questionId})}">Edit</a> </li>
-	<li th:text="${question.options}"></li>
+	
+	<li><label th:text="${question.options}"></label></li>
 	
 	
 	

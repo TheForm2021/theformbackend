@@ -5,11 +5,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Add options to question:</h1>
+
+
 
  
 <form th:object="${option}" th:action="@{/saveoption}" action="#" method="post">
-
+<p th:text="'Add options to question: '+${questionText}"/>
 <input type="hidden" id="questionId" name="questionId" th:value="${questionId}" readonly="readonly"/>
 <input type="hidden" id="questionnaryId" name="questionnaryId" th:value="${questionnary}" readonly="readonly"/>
 <label for="optionText">Option:</label>
@@ -21,9 +22,17 @@
 </form>
 <div>
 <table>
-<tr th:each="option :${options}">
-<td th:text="${option.optionText}"></td>
-<td> <a th:href="@{/delete/{id}(id=${option.optionId})}">Delete</a></td>
+<tr>
+<td>
+<th:block th:each="option :${options}">
+<input type="checkbox" name="opt" th:value="${option.optionId}"/>
+<label th:text="${option.optionText}"></label>
+<a th:href="@{/delete/{id}(id=${option.optionId})}">Delete</a>
+<br>
+
+</th:block>
+</td>
+ 
 
 
 </tr>
