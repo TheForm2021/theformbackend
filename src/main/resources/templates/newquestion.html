@@ -84,15 +84,46 @@ margin-bottom: 3px;
 	</div>
 	  <div>
 	  <h3>Review:</h3>
-	<ul th:each="question:${questions}">
-	<li th:text="'Question: '+ ${question.questionText}">
-	<li><a th:href="@{/newoption/{id}(id=${question.questionId})}">Edit</a> </li>
+
+	  <table>
+	  
+		<th:block th:each="question:${questions}">
+		<tr>
+		<td th:text="'Question: '+ ${question.questionText}"></td>
+
+		<td> <a th:href="@{/newoption/{id}(id=${question.questionId})}">Edit</a></td>
+		</tr>
 	
-	<li><label th:text="${question.options}"></label></li>
+		<tr th:each="option:${question.options}">
+	
+	
+	<td th:if="${option.question.type.typeText}=='Checkbox'">
+
+	<input type="checkbox"  name="opt" th:value="${option.optionId}">
+	<label th:text="${option.optionText}"></label>
+	
+	</td>
+	
+	<td th:if="${option.question.type.typeText}=='Radiobutton'">
+
+	<input type="radio"   name="opt" th:value="${option.optionId}">
+	<label th:text="${option.optionText}"></label>
+	
+	</td>
+	
+		<!--  <td th:text="${option.optionText}"></td>-->
+	
+		</tr>
+	
+	
+
 	
 	
 	
-	</ul>
+	
+	</th:block>
+	
+	</table>
 	</div> 
 
 

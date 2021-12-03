@@ -28,7 +28,7 @@
 <a th:if="${option.question.type.typeText}=='Checkbox'"><input type="checkbox" name="opt" th:value="${option.optionId}"/><label th:text="${option.optionText}"></label></a>
 <a th:if="${option.question.type.typeText}=='Radiobutton'"><input type="radio"  name="opt" th:value="${option.optionId}"/><label th:text="${option.optionText}"></label></a>
 
-<!--  <a th:href="@{/delete/{id}(id=${option.optionId})}">Delete</a>-->
+  <a th:href="@{/delete/{id}(id=${option.optionId})}">Delete</a>
 <br>
 
 </th:block>
