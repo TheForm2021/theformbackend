@@ -23,7 +23,7 @@ public class Answer {
 	@JsonIgnoreProperties("answers")
 	//@JsonIgnore
 	@JoinColumn(name="questionId")
-	Question question;
+	private Question question;
 	
 	@ManyToOne
 	//@JsonIgnore
