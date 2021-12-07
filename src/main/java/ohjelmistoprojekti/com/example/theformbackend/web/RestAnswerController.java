@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ohjelmistoprojekti.com.example.theformbackend.domain.Answer;
 import ohjelmistoprojekti.com.example.theformbackend.domain.AnswerRepository;
+import ohjelmistoprojekti.com.example.theformbackend.domain.Answerer;
 import ohjelmistoprojekti.com.example.theformbackend.domain.AnswererRepository;
 import ohjelmistoprojekti.com.example.theformbackend.domain.Question;
 import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionRepository;
@@ -55,6 +56,8 @@ public class RestAnswerController {
 	@PostMapping(value="/answers")
 	public @ResponseBody List <Answer> saveRestAnswerList(@RequestBody List<Answer> answers){
 		System.out.println(answers);
+		Answerer a= new Answerer();
+		arepository.save(a);
 		
 		return (List<Answer>) awrrepository.saveAll(answers);
 	}

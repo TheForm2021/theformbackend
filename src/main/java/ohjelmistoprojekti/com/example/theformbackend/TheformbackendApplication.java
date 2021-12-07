@@ -53,7 +53,7 @@ public class TheformbackendApplication {
 			Question q1= new Question("Onko kivaa?", qry1, t1);
 			Question q2=new Question("Miten menee?", qry1, t1);
 			Question q3= new Question("Toimiiko mikään?", qry1, t2);
-			Question q4= new Question("Toimiiko mikään?", qry2, t2);
+			Question q4= new Question("Paljonko pakkasta?", qry2, t2);
 			Question q5= new Question("Lemmikkisi nimi",qry2,t3);
 			qrepository.save(q1);
 			qrepository.save(q2);
@@ -73,9 +73,12 @@ public class TheformbackendApplication {
 			
 			Option o1= new Option("Ikinä ei ole kivaa", q1);
 			Option o2= new Option("Pelkkää hauskuutta", q1);
-			
+			Option o3= new Option("Plussan puolella ollaan", q4);
+			Option o4=new Option("Helvettikin jäätyy", q4);
 			orepository.save(o1);
 			orepository.save(o2);
+			orepository.save(o3);
+			orepository.save(o4);
 		
 			
 			log.info("Haetaan kaikki vastaajat:");
