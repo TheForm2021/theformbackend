@@ -45,19 +45,18 @@ public class RestAnswerController {
 		return qrepository.findById(id).get().getAnswers();
 		
 	}
-	//saves answer to repository
-	//@PostMapping(value="/answer")
-	//public @ResponseBody Answer saveAnswerRest( @RequestBody Answer answer) {
-	//	Question question= qrepository.findById(id).get();
-	//	answer.setQuestion(question);
-	//	return awrrepository.save(answer);
+	@PostMapping(value="/answerer")
+	public @ResponseBody String saveAnswerer(@RequestBody Answerer answerer) {
+		arepository.save(answerer);
+		return "redirect:/answers";
+		
+	}
+
 	
-	//saves answerlist to repository
 	@PostMapping(value="/answers")
 	public @ResponseBody List <Answer> saveRestAnswerList(@RequestBody List<Answer> answers){
 		System.out.println(answers);
-		Answerer a= new Answerer();
-		arepository.save(a);
+		
 		
 		return (List<Answer>) awrrepository.saveAll(answers);
 	}

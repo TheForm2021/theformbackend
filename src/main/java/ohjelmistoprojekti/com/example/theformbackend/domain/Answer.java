@@ -20,14 +20,14 @@ public class Answer {
 	private String answerText;
 	
 	@ManyToOne
-	//@JsonIgnoreProperties("answers")
-	@JsonIgnore
+	@JsonIgnoreProperties("answers")
+	//@JsonIgnore
 	@JoinColumn(name="questionId")
 	Question question;
 	
 	@ManyToOne
-	@JsonIgnore
-	//@JsonIgnoreProperties("answers")
+	//@JsonIgnore
+	@JsonIgnoreProperties("answers")
 	@JoinColumn(name="answererId")
 	private Answerer answerer;
 	

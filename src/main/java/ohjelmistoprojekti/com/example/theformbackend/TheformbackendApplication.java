@@ -73,11 +73,16 @@ public class TheformbackendApplication {
 			Option o2= new Option("Pelkkää hauskuutta", q1);
 			Option o3= new Option("Plussan puolella ollaan", q4);
 			Option o4=new Option("Helvettikin jäätyy", q4);
+			Option o5= new Option("Ei mee hyvin",q2);
+			Option o6= new Option("Pelkästään hyvin", q2);
+			Option o7= new Option("Hermo menee", q2);
 			orepository.save(o1);
 			orepository.save(o2);
 			orepository.save(o3);
 			orepository.save(o4);
-		
+			orepository.save(o5);
+			orepository.save(o6);
+			orepository.save(o7);
 			
 			log.info("Haetaan kaikki vastaajat:");
 			for(Answer answer :arepository.findAll()) {
