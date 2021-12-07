@@ -39,11 +39,9 @@ public class TheformbackendApplication {
 			log.info("Tallennetaan uusia kyselyitä:");
 			Questionnary qry1= new Questionnary("Kysely 1", "Random kysymyksiä");
 			Questionnary qry2= new Questionnary("Kysely 2", "Kaikenlaisia kyssäreitä");
-			Questionnary qry3= new Questionnary("Kysely 3", "Turhia kysymyksiä");
 			
 			qryrepository.save(qry1);
 			qryrepository.save(qry2);
-			qryrepository.save(qry3);
 			
 			Type t1= new Type("Checkbox");
 			Type t2= new Type("Radiobutton");
@@ -56,11 +54,12 @@ public class TheformbackendApplication {
 			Question q2=new Question("Miten menee?", qry1, t1);
 			Question q3= new Question("Toimiiko mikään?", qry1, t2);
 			Question q4= new Question("Toimiiko mikään?", qry2, t2);
-			
+			Question q5= new Question("Lemmikkisi nimi",qry2,t3);
 			qrepository.save(q1);
 			qrepository.save(q2);
 			qrepository.save(q3);
 			qrepository.save(q4);
+			qrepository.save(q5);
 			
 			Answerer ans1=new Answerer();
 			Answerer ans2=new Answerer();

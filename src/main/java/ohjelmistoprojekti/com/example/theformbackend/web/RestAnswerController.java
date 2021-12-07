@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ohjelmistoprojekti.com.example.theformbackend.domain.Answer;
 import ohjelmistoprojekti.com.example.theformbackend.domain.AnswerRepository;
+import ohjelmistoprojekti.com.example.theformbackend.domain.AnswererRepository;
 import ohjelmistoprojekti.com.example.theformbackend.domain.Question;
 import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionRepository;
 import ohjelmistoprojekti.com.example.theformbackend.domain.Questionnary;
@@ -31,6 +32,8 @@ public class RestAnswerController {
 	private QuestionnaryRepository qryrepository;
 	@Autowired 
 	private QuestionRepository qrepository;
+	@Autowired
+	private AnswererRepository arepository;
 	
 	
 	//REST service to get answers to certain question
@@ -52,6 +55,7 @@ public class RestAnswerController {
 	@PostMapping(value="/answers")
 	public @ResponseBody List <Answer> saveRestAnswerList(@RequestBody List<Answer> answers){
 		System.out.println(answers);
+		
 		return (List<Answer>) awrrepository.saveAll(answers);
 	}
 	//lists all questions and answers of certain questionnary
@@ -61,6 +65,7 @@ public class RestAnswerController {
 	}
 	@GetMapping(value="/answers")
 	public @ResponseBody List <Answer> findallAnswersRest(){
+	
 		return (List<Answer>) awrrepository.findAll();
 	}
 	

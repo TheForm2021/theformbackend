@@ -47,7 +47,7 @@ public class QuestionController {
 		return "newquestion";
 	}
 			
-	//Uuden kysymyksen tallennus EI TOIMI !!!
+	//Uuden kysymyksen tallennus TOIMII !!!
 	@PostMapping("/savequestion")
 	public String saveQuestions(@ModelAttribute Question question, @ModelAttribute("questionnaryid") Long id) {	
 	
