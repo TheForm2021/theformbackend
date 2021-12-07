@@ -52,12 +52,10 @@ public class TheformbackendApplication {
 			
 			Question q1= new Question("Onko kivaa?", qry1, t1);
 			Question q2=new Question("Miten menee?", qry1, t1);
-			Question q3= new Question("Toimiiko mikään?", qry1, t2);
 			Question q4= new Question("Paljonko pakkasta?", qry2, t2);
 			Question q5= new Question("Lemmikkisi nimi",qry2,t3);
 			qrepository.save(q1);
 			qrepository.save(q2);
-			qrepository.save(q3);
 			qrepository.save(q4);
 			qrepository.save(q5);
 			
