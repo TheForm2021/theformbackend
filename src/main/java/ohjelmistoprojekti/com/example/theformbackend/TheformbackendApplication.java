@@ -60,9 +60,7 @@ public class TheformbackendApplication {
 			Question q4= new Question("Lemmikkisi nimi",qry2,t1);
 			
 			Question q5= new Question("Mikä päivä tänään on?",qry3,t2);
-			Question q6= new Question("Mikä päivä tänään on?",qry3,t2);
-
-
+			Question q6= new Question("Kuka on idolisi?",qry3,t2);
 			
 			qrepository.save(q1);
 			qrepository.save(q2);
@@ -71,8 +69,6 @@ public class TheformbackendApplication {
 			qrepository.save(q5);
 			qrepository.save(q6);
 
-
-			
 			Answerer ans1=new Answerer();
 			Answerer ans2=new Answerer();
 			ansrepository.save(ans1);
@@ -83,13 +79,18 @@ public class TheformbackendApplication {
 			arepository.save(a1);
 			arepository.save(a2);
 			
-			Option o1= new Option("Ikinä ei ole kivaa", q1);
-			Option o2= new Option("Pelkkää hauskuutta", q1);
-			Option o3= new Option("Plussan puolella ollaan", q4);
-			Option o4=new Option("Helvettikin jäätyy", q4);
-			Option o5= new Option("Ei mee hyvin",q2);
-			Option o6= new Option("Pelkästään hyvin", q2);
-			Option o7= new Option("Hermo menee", q2);
+			Option o1= new Option("Pertti", q4);
+			Option o2= new Option("Hilkka", q4);
+
+			Option o3= new Option("Plussan puolella ollaan", q3);
+			Option o4=new Option("Helvettikin jäätyy", q3);
+			
+			Option o5= new Option("Viikonloppu",q5);
+			Option o6= new Option("Perjantai", q5);
+			
+			Option o7= new Option("Beyonce", q6);
+			Option o8= new Option("Madonna", q6);
+			Option o9= new Option("Otto", q6);
 			orepository.save(o1);
 			orepository.save(o2);
 			orepository.save(o3);
@@ -97,6 +98,8 @@ public class TheformbackendApplication {
 			orepository.save(o5);
 			orepository.save(o6);
 			orepository.save(o7);
+			orepository.save(o8);
+			orepository.save(o9);
 			
 			log.info("Haetaan kaikki vastaajat:");
 			for(Answer answer :arepository.findAll()) {
