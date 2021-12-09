@@ -18,6 +18,7 @@ margin-bottom: 3px;
 
 	<form id="form1" th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
 	<p th:text="'Add questions to questionnaire: '+${questionnaryText}"/>
+	
 	<!-- Lisätään uusi kysymys kyselyyn, jonka id on pathvariablena -->
 	<input type="hidden" id= "questionnaryid" name="questionnaryid" th:value="${questionnaryid}" readonly="readonly"/>
 	<p>
@@ -31,54 +32,16 @@ margin-bottom: 3px;
 	
 	 <label for="type">Question type:</label>
 	<select id="typelist" th:field="*{type}">
+	
 	<option th:each="type: ${types}" th:value="${type.typeId}" th:text="${type.typeText}"></option>
-	</select>
-<br>
-<br>
-	<!--   <input type="submit" value= "Add options"/>
-	<label for="optionText">Options:</label>
-	<input type="text" id="option"  th:field="${option.optionText}" size="50"/>
-	</form> -->
 
-	
-	
-<!--  <script>
-	function optionChange(){
-		var x= document.getElementById("typelist").value;
-		document.getElementById("demo").innerHTML="You selected "+ x ;
-	
-	}
-	(function(){
-		var counter=0;
-		var btn=document.getElementById('btn');
-		var form= document.getElementById('form');
-		var addInput= function(){
-			counter++;
-			var input=document.createElement("input");
-			input.ud='input-'+counter;
-			input.type='text;'
-			input.name = 'name';
-		    input.placeholder = 'Option number ' + counter;
-		    form.appendChild(input);
-		  };
-		  btn.addEventListener('click', function() {
-		    addInput();
-		  }.bind(this));
-	})();
-		
-	
-		
-		
-	
-	</script> -->
-	
+</select>
+<input type="submit" value="Save"/>
 
-	<!--   <ul th:each="option:${options}">
-	 <li th:text="${option.optionText}"></li>
-	 </ul>
-	 </div>
-	<br> -->
-	 <input type="submit" value= "Next"/>
+<!--   <input th:if="${type.typeText}=='Text'" type="submit" value= "Save"/>
+	 <input th:if="${type.typeText}=='Checkbox'" type="submit" value= "Next"/>
+	 <input th:unless="${type.typeText}=='Radiobutton'" type="submit" value="Next"/>-->
+
 	</form>
 	
 	
@@ -112,8 +75,12 @@ margin-bottom: 3px;
 	
 	</td>
 	
-		<!--  <td th:text="${option.optionText}"></td>-->
+	<td th:if="${option.question.type.typeText}=='Text'">
+	<input type="text" size="50"/>
 	
+	
+		<!--  <td th:text="${option.optionText}"></td>-->
+	</td>
 		</tr>
 	
 	

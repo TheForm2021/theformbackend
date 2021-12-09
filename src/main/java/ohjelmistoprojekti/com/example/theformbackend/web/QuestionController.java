@@ -55,7 +55,13 @@ public class QuestionController {
 		question.setQuestionnary(qry);
 		qrepository.save(question);
 		
+		if(question.getType().getTypeText().equals("Text")) {
+			return "redirect:/addquestion/"+id;
+			
+		}else {
+			
 		return "redirect:/newoption/"+question.getQuestionId();
+		}
 	
 	}
 	@GetMapping("/newoption/{id}")
