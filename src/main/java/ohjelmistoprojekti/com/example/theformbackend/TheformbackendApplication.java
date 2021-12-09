@@ -37,11 +37,14 @@ public class TheformbackendApplication {
 			
 			
 			log.info("Tallennetaan uusia kyselyitä:");
-			Questionnary qry1= new Questionnary("Kysely 1", "Random kysymyksiä");
-			Questionnary qry2= new Questionnary("Kysely 2", "Kaikenlaisia kyssäreitä");
+			Questionnary qry1= new Questionnary("Kysely 1", "Textboxkysely");
+			Questionnary qry2= new Questionnary("Kysely 2", "Checkboxkysely");
+			Questionnary qry3= new Questionnary("Kysely 3", "Radiobuttonkysely");
+
 			
 			qryrepository.save(qry1);
 			qryrepository.save(qry2);
+			qryrepository.save(qry3);
 			
 			Type t1= new Type("Checkbox");
 			Type t2= new Type("Radiobutton");
@@ -50,14 +53,25 @@ public class TheformbackendApplication {
 			trepository.save(t2);
 			trepository.save(t3);
 			
-			Question q1= new Question("Onko kivaa?", qry1, t1);
-			Question q2=new Question("Miten menee?", qry1, t1);
-			Question q4= new Question("Paljonko pakkasta?", qry2, t2);
-			Question q5= new Question("Lemmikkisi nimi",qry2,t3);
+			Question q1= new Question("Onko kivaa?", qry1, t3);
+			Question q2=new Question("Miten menee?", qry1, t3);
+			
+			Question q3= new Question("Paljonko pakkasta?", qry2, t1);
+			Question q4= new Question("Lemmikkisi nimi",qry2,t1);
+			
+			Question q5= new Question("Mikä päivä tänään on?",qry3,t2);
+			Question q6= new Question("Mikä päivä tänään on?",qry3,t2);
+
+
+			
 			qrepository.save(q1);
 			qrepository.save(q2);
+			qrepository.save(q3);
 			qrepository.save(q4);
 			qrepository.save(q5);
+			qrepository.save(q6);
+
+
 			
 			Answerer ans1=new Answerer();
 			Answerer ans2=new Answerer();
