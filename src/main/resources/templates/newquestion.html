@@ -12,7 +12,7 @@ div {
   background-color: #f2f2f2;
   padding: 20px;
 }
-input[type=text], textarea {
+input[type=text] {
   width: 100%;
   padding: 12px 15px;
   margin: 8px 0;
@@ -29,12 +29,12 @@ input[type=text], textarea {
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<header><h1>Add questions</h1></header>
+<header><h1 th:text="${questionnaryText}"></h1></header>
 
 <div>
 
 	<form id="form1" th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
-	<p th:text="'Add questions to questionnaire: '+${questionnaryText}"/>
+	<h2>Add questions</h2>
 	
 	<!-- Lisätään uusi kysymys kyselyyn, jonka id on pathvariablena -->
 	<input type="hidden" id= "questionnaryid" name="questionnaryid" th:value="${questionnaryid}" readonly="readonly"/>
@@ -53,7 +53,8 @@ input[type=text], textarea {
 	<option th:each="type: ${types}" th:value="${type.typeId}" th:text="${type.typeText}"></option>
 
 </select>
-<input type="submit" value="Save"/>
+<p>
+<input type="submit" value="Save" />
 
 <!--   <input th:if="${type.typeText}=='Text'" type="submit" value= "Save"/>
 	 <input th:if="${type.typeText}=='Checkbox'" type="submit" value= "Next"/>
@@ -63,7 +64,7 @@ input[type=text], textarea {
 </div>
 	
 <div>
-	  <h3>Review:</h3>
+	  <h2>Review:</h2>
 
 	  <table>
 	
