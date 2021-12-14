@@ -55,9 +55,9 @@ public class QuestionnaryController {
 		return "redirect:questionnarylist";
 	}
 	
-	// poistetaan idn perusteella
+	// poistetaan kysely idn perusteella
 	@RequestMapping(value = "/questionnarydelete/{id}", method = RequestMethod.GET)
-	public String delete (@PathVariable(value= "id") long questionnaryId) {
+	 public String delete (@PathVariable(value= "id") Long questionnaryId) {
 		qryrepository.deleteById(questionnaryId);
 		return "redirect:../questionnarylist";
 		}
