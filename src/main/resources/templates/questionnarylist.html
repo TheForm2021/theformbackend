@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<style>
+header {
+  background-color: #ffffff;
+  padding: 30px;
+}
+</style>
+
 <head>
 <title>Questions and Questionnairies</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	
-	<h1>Questionnairies</h1>
-	<table>
+	<header><h1>Questionnairies</h1></header>
+	<table class="table table-striped">
 	<tbody>
 	<tr>
 	<td>Questionnaire ID</td>
@@ -20,14 +27,14 @@
 	<td th:text="${questionnary.questionnaryId}"></td>
 		<td th:text="${questionnary.header}"></td>
 		<td th:text="${questionnary.description}"></td>
-		<td><a th:href="@{/open/{id}(id=${questionnary.questionnaryId})}">Open</a></td>
-		<td><a th:href="@{/addquestion/{id}(id=${questionnary.questionnaryId})}">Add questions</a></td>
+		<td><a th:href="@{/open/{id}(id=${questionnary.questionnaryId})}" class="btn btn-light">Open</a></td>
+		<td><a th:href="@{/addquestion/{id}(id=${questionnary.questionnaryId})}" class="btn btn-secondary">Add questions</a></td>
 		</tr>
 		
 	
 	</tbody>
 	</table>
 	
-	<a href="/newquestionnary">Add new questionnaire</a>
+	<a href="/newquestionnary" class="btn btn-dark" >Add new questionnaire</a>
 </body>
 </html>

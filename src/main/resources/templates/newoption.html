@@ -1,47 +1,70 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<style>
+header {
+  background-color: #ffffff;
+  padding: 20px;
+}
+div {
+  width: 50%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+input[type=text], textarea {
+  width: 50%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+</style>
+
 <head>
-<meta charset="UTF-8">
 <title>Insert title here</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 
 
 
- 
-<form th:object="${option}" th:action="@{/saveoption}" action="#" method="post">
-<p th:text="'Add options to question: '+${questionText}"/>
-<input type="hidden" id="questionId" name="questionId" th:value="${questionId}" readonly="readonly"/>
-<input type="hidden" id="questionnaryId" name="questionnaryId" th:value="${questionnary}" readonly="readonly"/>
-<label for="optionText">Option:</label>
-<input type="text" id="optionText" th:field="*{optionText}" size="50"/>
-
-
-<input type="submit" value="Save"/>
-
-</form>
 <div>
-<table>
-<tr>
-<td>
-<th:block th:each="option :${options}">
-<a th:if="${option.question.type.typeText}=='Checkbox'"><input type="checkbox" name="opt" th:value="${option.optionId}"/><label th:text="${option.optionText}"></label></a>
-<a th:if="${option.question.type.typeText}=='Radiobutton'"><input type="radio"  name="opt" th:value="${option.optionId}"/><label th:text="${option.optionText}"></label></a>
-
-  <a th:href="@{/delete/{id}(id=${option.optionId})}">Delete</a>
-<br>
-
-</th:block>
-</td>
- 
-
-
-</tr>
-</table>
+	<form th:object="${option}" th:action="@{/saveoption}" action="#" method="post">
+	<p th:text="'Add options to question: '+${questionText}"/>
+	<input type="hidden" id="questionId" name="questionId" th:value="${questionId}" readonly="readonly"/>
+	<input type="hidden" id="questionnaryId" name="questionnaryId" th:value="${questionnary}" readonly="readonly"/>
+	<label for="optionText">Option:</label>
+	
+	<input type="text" id="optionText" th:field="*{optionText}" size="50"/>
+	<div style="clear: both; display: block; height: 10px;"></div>
+	
+	<input type="submit" value="Save"/>
+	
+	</form>
+<div>
+	<table>
+	<tr>
+	<td>
+	<th:block th:each="option :${options}">
+	<a th:if="${option.question.type.typeText}=='Checkbox'"><input type="checkbox" name="opt" th:value="${option.optionId}"/><label th:text="${option.optionText}"></label></a>
+	<a th:if="${option.question.type.typeText}=='Radiobutton'"><input type="radio"  name="opt" th:value="${option.optionId}"/><label th:text="${option.optionText}"></label></a>
+	
+	  <a th:href="@{/delete/{id}(id=${option.optionId})}">Delete</a>
+	<br>
+	
+	</th:block>
+	</td>
+	 
+	
+	
+	</tr>
+	</table>
 </div>
 <a th:href="@{/addquestion/{id}(id=${questionnary.questionnaryId})}">Save and review</a>
-
+</div>
 </body>
 </html>
 

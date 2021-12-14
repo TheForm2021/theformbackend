@@ -1,12 +1,35 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<style>
+header {
+  background-color: #ffffff;
+  padding: 30px;
+}
+div {
+  width: 50%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+input[type=text], textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+</style>
+
 <head>
     <title>New Questionnaire</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
+
 <body>
-<h1>Add new Questionnaire</h1>
+<header><h1>Add new Questionnaire</h1></header>
 <div>
 <p>
 <form th:object="${questionnary}" id="myform" th:action="@{savequestionnary}" action="#" method="post">
@@ -19,13 +42,11 @@
 <textarea id="description" th:field="*{description}" form="myform" rows="4" cols="60"></textarea>
 
 </p>
-<input type="submit" value="Tallenna">
+<input type="submit" value="Tallenna"  class="btn btn-success">
 
-
-	
 </form>
-
-
+ <div style="clear: both; display: block; height: 20px;"></div>
+<a href ="/questionnarylist"  class="btn btn-light">Return</a>
 
 
 </div>

@@ -1,6 +1,28 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<style>
+header {
+  background-color: #ffffff;
+  padding: 20px;
+}
+div {
+  width: 50%;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+input[type=text], textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+</style>
+
 <head>
 <!-- <style>
 input{
@@ -12,7 +34,7 @@ margin-bottom: 3px;
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<h1>Add questions</h1>
+<header><h1>Add questions</h1></header>
 
 <div>
 
@@ -43,10 +65,9 @@ margin-bottom: 3px;
 	 <input th:unless="${type.typeText}=='Radiobutton'" type="submit" value="Next"/>-->
 
 	</form>
+</div>
 	
-	
-	</div>
-	  <div>
+<div>
 	  <h3>Review:</h3>
 
 	  <table>
@@ -84,19 +105,13 @@ margin-bottom: 3px;
 		</tr>
 	
 	
-
-	
-	
-	
-	
 	</th:block>
 	
 	</table>
-	</div> 
-
+</div> 
 
 	
-<a href ="/questionnarylist">Return</a>
+<a href ="/questionnarylist" class="btn btn-light">Return</a>
 
 </body>
 </html>
