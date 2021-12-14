@@ -80,8 +80,6 @@ public class QuestionController {
 		option.setQuestion(question);
 		orepository.save(option);
 		
-		
-		
 		return "redirect:/newoption/"+option.getQuestion().getQuestionId();
 			
 }

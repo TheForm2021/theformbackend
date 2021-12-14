@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import ohjelmistoprojekti.com.example.theformbackend.domain.Questionnary;
 import ohjelmistoprojekti.com.example.theformbackend.domain.QuestionnaryRepository;
@@ -53,6 +55,12 @@ public class QuestionnaryController {
 		return "redirect:questionnarylist";
 	}
 	
+	// poistetaan idn perusteella
+	@RequestMapping(value = "/questionnarydelete/{id}", method = RequestMethod.GET)
+	public String delete (@PathVariable(value= "id") long questionnaryId) {
+		qryrepository.deleteById(questionnaryId);
+		return "redirect:../questionnarylist";
+		}
 		
 }
 
