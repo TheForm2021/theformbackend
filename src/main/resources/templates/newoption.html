@@ -33,17 +33,26 @@ input[type=text], textarea {
 
 <div>
 	<form th:object="${option}" th:action="@{/saveoption}" action="#" method="post">
+	
 	<p th:text="'Add options to question: '+${questionText}"/>
+	
 	<input type="hidden" id="questionId" name="questionId" th:value="${questionId}" readonly="readonly"/>
 	<input type="hidden" id="questionnaryId" name="questionnaryId" th:value="${questionnary}" readonly="readonly"/>
+	
+	<label for="questionText">Question:</label>
+	<input type="text" id="questionText" th:field="*{question.questionText}" th:value="${questionId}" size="50"/>
+	
+	<p>
+	
 	<label for="optionText">Option:</label>
 	
 	<input type="text" id="optionText" th:field="*{optionText}" size="50"/>
-	<div style="clear: both; display: block; height: 10px;"></div>
+	<p>
 	
 	<input type="submit" value="Save"/>
 	
 	</form>
+	<div style="clear: both; display: block; height: 10px;"></div>
 <div>
 	<table>
 	<tr>
@@ -63,9 +72,13 @@ input[type=text], textarea {
 	</tr>
 	</table>
 </div>
+
+<div style="clear: both; display: block; height: 10px;"></div>
+
 <a th:href="@{/addquestion/{id}(id=${questionnary.questionnaryId})}">Save and review</a>
+
 </div>
+
 </body>
 </html>
-
 

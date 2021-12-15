@@ -53,20 +53,21 @@ public class RestAnswerController {
 	//}
 
 	
-@PostMapping(value="/answers")
-public @ResponseBody List <Answer> saveRestAnswerList(@RequestBody List<Answer> answers){
-		System.out.println(answers);
+	
+	// Esitellään tämä
+	@PostMapping(value="/answers")
+	public @ResponseBody List <Answer> saveRestAnswerList(@RequestBody List<Answer> answers){
 		Answerer a= new Answerer();
 		arepository.save(a);
 		for (Answer answer:answers){
 			answer.setAnswerer(a);
 		}
-		
-		//a.setAnswers(answers);
-		
-		
 		return (List<Answer>) awrrepository.saveAll(answers);
 	}
+	
+	
+	
+	
 	//lists all questions and answers of certain questionnary
 	@GetMapping(value="/questionnaries/{questionnaryId}")
 	public @ResponseBody Questionnary findQuestionnaries(@PathVariable ("questionnaryId")Long questionnaryId){

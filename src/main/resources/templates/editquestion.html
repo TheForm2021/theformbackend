@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+<style>
+header {
+  background-color: #ffffff;
+  padding: 30px;
+}
+</style>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+
+<body>
+	<h1>Edit question</h1>
+<div>
+	<form th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
+	
+	<input type="hidden" id="questionId" name="questionId" th:value="${questionId}" readonly="readonly"/>
+	<label for="questionText">Question:</label>
+	<input type="text" id="questionText" th:field="*{questionText}" size="50"/>
+	
+		<p>
+	 <label for="type">Question type:</label>
+	<select id="typelist" th:field="*{type}">
+	<option th:each="type: ${types}" th:value="${type.typeId}" th:text="${type.typeText}"></option>
+	</select>
+	<p>
+	
+	<input type="submit" value="Save" />
+	
+	</form>
+
+
+</div>
+</body>
+</html>

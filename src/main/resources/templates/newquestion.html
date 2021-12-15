@@ -7,7 +7,7 @@ header {
   padding: 20px;
 }
 div {
-  width: 50%;
+  width: 60%;
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
@@ -49,12 +49,11 @@ input[type=text] {
 	
 	 <label for="type">Question type:</label>
 	<select id="typelist" th:field="*{type}">
-	
 	<option th:each="type: ${types}" th:value="${type.typeId}" th:text="${type.typeText}"></option>
+	</select>
+	<p>
 
-</select>
-<p>
-<input type="submit" value="Save" />
+	<input type="submit" value="Save" />
 
 <!--   <input th:if="${type.typeText}=='Text'" type="submit" value= "Save"/>
 	 <input th:if="${type.typeText}=='Checkbox'" type="submit" value= "Next"/>
@@ -71,8 +70,8 @@ input[type=text] {
 		<th:block th:each="question:${questions}">
 		<tr>
 		<td th:text="'Question: '+ ${question.questionText}"></td>
-
-		<td> <a th:href="@{/newoption/{id}(id=${question.questionId})}">Edit</a></td>
+		<td> <a th:href="@{/editquestion/{id}(id=${question.questionId})}">Edit question</a></td>
+		<td> <a th:href="@{/newoption/{id}(id=${question.questionId})}">Edit options</a></td>
 		</tr>
 	
 		<tr th:each="option:${question.options}">
