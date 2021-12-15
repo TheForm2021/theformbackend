@@ -9,22 +9,22 @@ header {
 </style>
 
 <head>
-<title>Questions and Questionnairies</title>
+<title>Listaus</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	
-	<header><h1>Questionnairies</h1></header>
+	<header><h1>Kyselylistaus</h1></header>
 	<table class="table table-striped">
 	<tbody>
 	<tr>
-	<td>Questionnaire ID</td>
-	<td>Questionnaire name</td>
-	<td>Questionnaire description</td>
+	<!-- <td>Questionnaire ID</td>-->
+	<td>Nimi</td>
+	<td>Kuvaus</td>
 	</tr>
 	
 	<tr th:each="questionnary:${questionnaries}">
-	<td th:text="${questionnary.questionnaryId}"></td>
+<!--  	<td th:text="${questionnary.questionnaryId}"></td> -->
 		<td th:text="${questionnary.header}"></td>
 		<td th:text="${questionnary.description}"></td>
 		<td><a th:href="@{/open/{id}(id=${questionnary.questionnaryId})}" class="btn btn-light">Open</a></td>
@@ -36,6 +36,6 @@ header {
 	</tbody>
 	</table>
 	
-	<a href="/newquestionnary" class="btn btn-dark" >Add new questionnaire</a>
+	<a href="/newquestionnary" class="btn btn-dark" >Lisää uusi kysely</a>
 </body>
 </html>

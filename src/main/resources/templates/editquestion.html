@@ -14,22 +14,25 @@ header {
 </head>
 
 <body>
-	<h1>Edit question</h1>
+	<h1>Muokkaa kysymystekstiä</h1>
 <div>
+	<!-- Olemassa olevan kysymyksen muokkauslomake -->
 	<form th:object="${question}" th:action="@{/savequestion}" action="#" method="post">
-	
-	<input type="hidden" id="questionId" name="questionId" th:value="${questionId}" readonly="readonly"/>
-	<label for="questionText">Question:</label>
+	<!-- piilokentissä kysymyksen id ja kysymykseen kuuluva kyselyid -->
+	<input type="hidden" id= "questionnaryid" name="questionnaryid" th:value="${questionnaryid}" readonly="readonly"/>
+	<input type="hidden" id="questionId" name="questionId" th:value="*{questionId}" readonly="readonly"/>
+	<label for="questionText">Kysymysteksti:</label>
 	<input type="text" id="questionText" th:field="*{questionText}" size="50"/>
 	
 		<p>
-	 <label for="type">Question type:</label>
+	 <label for="type">Kysymyksen tyyppi:</label>
+	 <!-- Kysymystyypin muokkaus -->
 	<select id="typelist" th:field="*{type}">
 	<option th:each="type: ${types}" th:value="${type.typeId}" th:text="${type.typeText}"></option>
 	</select>
 	<p>
 	
-	<input type="submit" value="Save" />
+	<input type="submit" value="Tallenna" />
 	
 	</form>
 

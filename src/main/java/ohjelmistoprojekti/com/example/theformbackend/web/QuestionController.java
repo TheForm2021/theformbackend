@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -48,6 +49,7 @@ public class QuestionController {
 		return "newquestion";
 	}
 			
+	
 	//Uuden kysymyksen tallennus TOIMII !!!
 	@PostMapping("/savequestion")
 	public String saveQuestions(@ModelAttribute Question question, @ModelAttribute("questionnaryid") Long id) {	
@@ -59,13 +61,13 @@ public class QuestionController {
 		if (question.getType().getTypeText().equals("Text")) {
 			return "redirect:/addquestion/"+id;
 			
-		} else {
-			
-		return "redirect:/newoption/"+question.getQuestionId();
+		}else {
 		}
-	
+		return "redirect:/newoption/"+question.getQuestionId();
 	}
 	
+
+	//uuden vaihtoehdon lisäys
 	@GetMapping("/newoption/{id}")
 	public String getOptionForm(Model model,@PathVariable("id") Long questionId) {
 		Option option= new Option();
@@ -77,6 +79,7 @@ public class QuestionController {
 		return "newoption";
 	}
 	
+	//uuden vaihtoehdon tallennus
 	@PostMapping("/saveoption")
 	public String saveOptions(@ModelAttribute Option option, @ModelAttribute("questionId") Long id) {
 		Question question= qrepository.findById(id).get();
@@ -89,14 +92,22 @@ public class QuestionController {
 	// haetaan kysymys muokattavaksi idn perusteella
 	@RequestMapping(value= "/editquestion/{id}")
 	public String editById (@PathVariable(value="id") Long id, Model model) {
-		model.addAttribute("question", qrepository.findById(id));
-		model.addAttribute("type", qrepository.findById(id).get().getType());
+		model.addAttribute("questionnaryid", qrepository.findById(id).get().getQuestionnary().getQuestionnaryId());
+		model.addAttribute("question", qrepository.findById(id).get());
+		model.addAttribute("types", trepository.findAll());
 		return "editquestion";
 	}
+	//poista kysymys
+	@GetMapping("/deletequestion/{id}")
+	public String deleteQuestionById(@PathVariable("id")Long questionId, Model model) {
+		Question q = qrepository.findById(questionId).get();
+		qrepository.deleteById(questionId);
+		return "redirect:/addquestion/"+q.getQuestionnary().getQuestionnaryId();
+	}
 	
-	
+	//poista vaihtoehto
 	@GetMapping("/delete/{id}")
-	public String deleteById(@PathVariable("id")Long optionId, Model model) {
+	public String deleteOptionById(@PathVariable("id")Long optionId, Model model) {
 		Question question= orepository.findById(optionId).get().getQuestion();
 		orepository.deleteById(optionId);
 		return "redirect:/newoption/"+question.getQuestionId();
